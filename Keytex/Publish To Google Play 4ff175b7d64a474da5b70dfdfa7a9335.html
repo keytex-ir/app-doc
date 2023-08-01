@@ -1,0 +1,720 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Publish To Google Play</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4ff175b7-d64a-474d-a5b7-0dfdfa7a9335" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🥂</span></div><h1 class="page-title">Publish To Google Play</h1></header><div class="page-body"><p id="dea53ea7-e235-48bb-8597-ecba12d90f8b" class=""><strong>Preparing the build</strong></p><p id="d07729fe-eae8-427b-b143-184990c60a35" class="">If you want to upload your application on Google Play you must sign it before uploading, generate a signing key by running the following command:</p><pre id="8e523d07-47b4-4446-a583-258e0c0e6fd7" class="code"><code>keytool -genkey -v -keystore android/app/key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key</code></pre><p id="d7950dda-0601-4d8d-b706-5b4b259f99bf" class="">Open /android/key.properties and edit the following attributes with the values specified from above</p><p id="d3ec6a49-d0b2-4183-8ebb-a74372cc81ed" class="">You should also change the package name using the search function in your IDE please search and replace <em><strong>com.codememory.thechurchapp</strong></em> with your unique package name.</p><p id="238d0004-678c-4568-8b51-0b52574dbe32" class="">
+</p><p id="1a8db70b-fbf0-4bd1-b661-b8efbbfacdd2" class=""><strong>Upload to Google Play Store</strong></p><p id="579767f0-b0be-4c4e-801c-d2f61c6054ad" class="">Once you have finished the steps from preparing the build you can now test the application in debug mode to ensure everything is working with the commands</p><pre id="dcb2f746-bc22-4b6e-b8f0-90da5ebd6211" class="code"><code>flutter clean</code></pre><pre id="df1d21f4-2d3e-44cf-a4d8-4a73524942ab" class="code"><code>flutter run</code></pre><p id="3862189d-b382-4a30-b3a4-5630e3dd3b18" class="">To get the release version, run the following command:</p><pre id="3aeeb09e-7ba4-4717-953a-8ef722ab6954" class="code"><code>flutter build apk --split-per-abi</code></pre><p id="0b7b5ff8-f1c5-4c6a-87be-ddb52ee5741b" class="">You will get 3 apk files from the build/app/output/apk/release folder.You can test the v7 version of the apk file. If you want to publish the app in the google play store, don’t upload any of the following files. Use an appbundle file which is recommended by Google.To generate an appbundle, run the following commands on terminal:</p><pre id="c97e5443-42f8-4ed3-bc06-b4ee03ea69ce" class="code"><code>flutter clean</code></pre><pre id="3fe3b82f-e5e8-46c9-9e3d-4ee4fcbd623f" class="code"><code>flutter build appbundle</code></pre><p id="9927ff2d-1681-4658-8f01-23ee5eceaa8c" class="">After that, you will get an .aab file in the build/app/output/appbundle/releasefolder. Now you can upload this .aab file to the google play store.</p><h1 id="0b3e8484-d35b-4629-a893-f2a7252b07e0" class=""><strong>Build and release an iOS app</strong></h1><p id="02fd8774-3ecb-4640-ae15-a245ebe0fe4b" class="">This guide provides a step-by-step walkthrough of releasing a Flutter app to the <a href="https://developer.apple.com/app-store/submissions/">App Store</a> and <a href="https://developer.apple.com/testflight/">TestFlight</a>.</p><h1 id="13541f24-41b4-4488-894e-0b7fc1c36a01" class=""><strong>Preliminaries</strong></h1><p id="1abf72ee-2c3c-491c-ae22-cfe27eb24710" class="">Xcode is required to build and release your app. You must use a device running macOS to follow this guide.</p><p id="4f511f99-7e0b-4047-959e-408e6d75bdcc" class="">Before beginning the process of releasing your app, ensure that it meets Apple’s <a href="https://developer.apple.com/app-store/review/">App Review Guidelines</a>.</p><p id="e1c31b94-7705-45cc-8918-a23bf47fe6bc" class="">In order to publish your app to the App Store, you must first enroll in the <a href="https://developer.apple.com/programs/">Apple Developer Program</a>. You can read more about the various membership options in Apple’s <a href="https://developer.apple.com/support/compare-memberships/">Choosing a Membership</a> guide.</p><h1 id="b726f058-7e55-4773-a977-b9ca07c8a8e2" class=""><strong>Register your app on App Store Connect</strong></h1><p id="f42ae0b4-94e8-4bd5-b34b-272eeb73133e" class="">Manage your app’s life cycle on <a href="https://developer.apple.com/support/app-store-connect/">App Store Connect</a> (formerly iTunes Connect). You define your app name and description, add screenshots, set pricing, and manage releases to the App Store and TestFlight.</p><p id="0959591b-41b1-428e-9bc2-dedf5575b06c" class="">Registering your app involves two steps: registering a unique Bundle ID, and creating an application record on App Store Connect.</p><p id="7374b7ce-b36e-4164-b420-ae0d4055e0fd" class="">For a detailed overview of App Store Connect, see the <a href="https://developer.apple.com/support/app-store-connect/">App Store Connect</a> guide.</p><p id="eab7cd15-3abc-4716-b7b8-19b0763f4410" class=""><strong><strong>Register a Bundle ID</strong></strong></p><p id="c5da11ff-9c52-4b80-a868-01b30ea5e996" class="">Every iOS application is associated with a Bundle ID, a unique identifier registered with Apple. To register a Bundle ID for your app, follow these steps:</p><p id="538b7ac0-49e1-4219-8e2b-7a8289ed6827" class="">1. 1.Open the <a href="https://developer.apple.com/account/ios/identifier/bundle">App IDs</a> page of your developer account.
+2. 2.Click <strong>+</strong> to create a new Bundle ID.
+3. 3.Enter an app name, select <strong>Explicit App ID</strong>, and enter an ID.
+4. 4.Select the services your app uses, then click <strong>Continue</strong>.
+5. 5.On the next page, confirm the details and click <strong>Register</strong> to register your Bundle ID.</p><p id="51f6e0e7-ac93-4619-993c-797be4b337cd" class=""><strong><strong>Create an application record on App Store Connect</strong></strong></p><p id="4d59e7ab-e122-474b-bcb4-42c30092a5e3" class="">Register your app on App Store Connect:</p><p id="4d7e5724-1350-4966-a309-661417f2fd75" class="">1. 1.Open <a href="https://appstoreconnect.apple.com/">App Store Connect</a> in your browser.
+2. 2.On the App Store Connect landing page, click <strong>My Apps</strong>.
+3. 3.Click <strong>+</strong> in the top-left corner of the My Apps page, then select <strong>New App</strong>.
+4. 4.Fill in your app details in the form that appears. In the Platforms section, ensure that iOS is checked. Since Flutter does not currently support tvOS, leave that checkbox unchecked. Click <strong>Create</strong>.
+5. 5.Navigate to the application details for your app and select <strong>App Information</strong> from the sidebar.
+6. 6.In the General Information section, select the Bundle ID you registered in the preceding step.</p><p id="17a1f8af-af69-42d8-b70d-18eb8c61900d" class="">For a detailed overview, see <a href="https://help.apple.com/app-store-connect/#/dev2cd126805">Add an app to your account</a>.</p><h1 id="30f52c4f-6a2a-4ccf-981f-fb85137df3e2" class=""><strong>Review Xcode project settings</strong></h1><p id="0387214f-4b9a-4982-be40-aa067d6e1b9e" class="">This step covers reviewing the most important settings in the Xcode workspace. For detailed procedures and descriptions, see <a href="https://help.apple.com/xcode/mac/current/#/dev91fe7130a">Prepare for app distribution</a>.</p><p id="59828a9c-48ad-42ea-89ff-2870bd957811" class="">Navigate to your target’s settings in Xcode:</p><p id="c0cc2881-2002-4424-9751-e6f8e8fdd672" class="">1. 1.In Xcode, open <code>Runner.xcworkspace</code> in your app’s <code>ios</code> folder.
+2. 2.To view your app’s settings, select the <strong>Runner</strong> project in the Xcode project navigator. Then, in the main view sidebar, select the <strong>Runner</strong> target.
+3. 3.Select the <strong>General</strong> tab.</p><p id="337a8f15-e6f5-4e38-8b8e-2f6ac6a9b89c" class="">Verify the most important settings.</p><p id="2932467f-826f-4d2d-802a-da36b9c7f23f" class="">In the <strong>Identity</strong> section:</p><p id="67261cb3-93c8-458e-accd-a442489f839d" class=""><code>Display Name</code>The display name of your app.<code>Bundle Identifier</code>The App ID you registered on App Store Connect.</p><p id="469a28ca-845e-4dca-b96c-6575c69b1079" class="">In the <strong>Signing &amp; Capabilities</strong> section:</p><p id="587814e6-5220-422b-8b3c-fe7bea2d3153" class=""><code>Automatically manage signing</code>Whether Xcode should automatically manage app signing and provisioning. This is set <code>true</code> by default, which should be sufficient for most apps. For more complex scenarios, see the <a href="https://developer.apple.com/library/content/documentation/Security/Conceptual/CodeSigningGuide/Introduction/Introduction.html">Code Signing Guide</a>.<code>Team</code>Select the team associated with your registered Apple Developer account. If required, select <strong>Add Account…</strong>, then update this setting.</p><p id="ccce8ebd-6751-4cf1-8179-d4342c6d30ca" class="">In the <strong>Build Settings</strong> section:</p><p id="fa39be66-32c1-4195-b40e-a4aedf08b529" class=""><code>iOS Deployment Target</code>The minimum iOS version that your app supports. Flutter supports iOS 9.0 and later. If your app or plugins include Objective-C or Swift code that makes use of APIs newer than iOS 9, update this setting to the highest required version.</p><p id="e6fd730a-e667-4067-a933-31d89b061f2f" class="">The <strong>General</strong> tab of your project settings should resemble the following:</p><figure id="0aacec29-875c-4708-9874-a3cb09acfe65" class="image"><a href="https://docs.flutter.dev/assets/images/docs/releaseguide/xcode_settings.png"><img src="https://docs.flutter.dev/assets/images/docs/releaseguide/xcode_settings.png"/></a></figure><p id="3d8e48c2-00c2-4e1c-b336-5a16d06e1f4e" class="">Xcode Project Settings</p><p id="04c76f9f-f400-417d-9adc-d62fc509f702" class="">For a detailed overview of app signing, see <a href="https://help.apple.com/xcode/mac/current/#/dev154b28f09">Create, export, and delete signing certificates</a>.</p><h1 id="db71f29c-ccc0-4f30-985b-97ada4b6fae4" class=""><strong>Updating the app’s deployment version</strong></h1><p id="5e264d6c-b17c-490d-b311-ef9fd5116d0e" class="">If you changed <code>Deployment Target</code> in your Xcode project, open <code>ios/Flutter/AppframeworkInfo.plist</code> in your Flutter app and update the <code>MinimumOSVersion</code> value to match.</p><h1 id="3f0a19d3-f4d8-44c5-8e2e-c2162891e7a9" class=""><strong>Updating the app’s version number</strong></h1><p id="4de7aab9-13c6-45a1-b172-a1fa01ff06a6" class="">The default version number of the app is <code>1.0.0</code>. To update it, navigate to the <code>pubspec.yaml</code> file and update the following line:</p><p id="648aa1bb-f348-400a-a23c-6b6ce71eeb82" class=""><code>version: 1.0.0+1</code></p><p id="4c4063d5-dc8e-4554-890b-b282a211a5c2" class="">The version number is three numbers separated by dots, such as <code>1.0.0</code> in the example above, followed by an optional build number such as <code>1</code> in the example above, separated by a <code>+</code>.</p><p id="321d38bd-7618-487c-ac6f-3528ace20aa9" class="">Both the version and the build number may be overridden in Flutter’s build by specifying <code>--build-name</code> and <code>--build-number</code>, respectively.</p><p id="ccc18829-3e48-49a5-b7dc-e1c79c43d689" class="">In iOS, <code>build-name</code> uses <code>CFBundleShortVersionString</code> while <code>build-number</code> uses <code>CFBundleVersion</code>. Read more about iOS versioning at <a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html">Core Foundation Keys</a> on the Apple Developer’s site.</p><h1 id="76415975-5279-41c2-a431-32865f9c3553" class=""><strong>Add an app icon</strong></h1><p id="41606411-4877-4500-943f-c7f7ac4fa487" class="">When a new Flutter app is created, a placeholder icon set is created. This step covers replacing these placeholder icons with your app’s icons:</p><p id="c6010e8e-8b1e-4f4c-84c6-fbef5df03d76" class="">1. 1.Review the <a href="https://developer.apple.com/ios/human-interface-guidelines/icons-and-images/app-icon/">iOS App Icon</a> guidelines.
+2. 2.In the Xcode project navigator, select <code>Assets.xcassets</code> in the <code>Runner</code> folder. Update the placeholder icons with your own app icons.
+3. 3.Verify the icon has been replaced by running your app using <code>flutter run</code>.</p><h1 id="9133116d-7fed-4fc8-b800-5aad6ff835fa" class=""><strong>Create a build archive with Xcode</strong></h1><p id="880a8a8a-5789-45f1-b687-388e43f8ec9e" class="">This step covers creating a build archive and uploading your build to App Store Connect.</p><p id="4ef3be49-0752-46ff-a5ec-a8c743e58d6b" class="">During development, you’ve been building, debugging, and testing with <em>debug</em> builds. When you’re ready to ship your app to users on the App Store or TestFlight, you need to prepare a <em>release</em> build. At this point, you might consider <a href="https://docs.flutter.dev/deployment/obfuscate">obfuscating your Dart code</a> to make it more difficult to reverse engineer. Obfuscating your code involves adding a couple flags to your build command.</p><p id="a76db9c1-09c3-4024-9686-0374e9bae39f" class="">In Xcode, configure the app version and build:</p><p id="34e41763-0bb6-4572-96f7-d0b0a9e8dbe1" class="">1. 1.In Xcode, open <code>Runner.xcworkspace</code> in your app’s <code>ios</code> folder.
+2. 2.Select <strong>Runner</strong> in the Xcode project navigator, then select the <strong>Runner</strong> target in the settings view sidebar.
+3. 3.In the Identity section, update the <strong>Version</strong> to the user-facing version number you wish to publish.
+4. 4.In the Identity section, update the <strong>Build</strong> identifier to a unique build number used to track this build on App Store Connect. Each upload requires a unique build number.</p><p id="c4994835-2474-415b-8a32-15f9836ccff2" class="">Finally, create a build archive and upload it to App Store Connect:</p><p id="8b9d60fe-99ba-4654-b0d0-4d8fcf66ce7d" class="">1. 1.Run <code>flutter build ipa</code> to produce a build archive. <strong>Note:</strong> On versions of Flutter where <code>flutter build ipa</code> is unavailable, open Xcode and select <strong>Product &gt; Archive</strong>. In the sidebar of the Xcode Organizer window, select your iOS app, then select the build archive you just produced.
+2. 2.Open <code>build/ios/archive/MyApp.xcarchive</code> in Xcode.
+3. 3.Click the <strong>Validate App</strong> button. If any issues are reported, address them and produce another build. You can reuse the same build ID until you upload an archive.
+4. 4.After the archive has been successfully validated, click <strong>Distribute App</strong>. You can follow the status of your build in the Activities tab of your app’s details page on <a href="https://appstoreconnect.apple.com/">App Store Connect</a>. <strong>Note:</strong> When you export your app at the end of <strong>Distribute App</strong>, Xcode will create a directory containing an IPA of your app and an <code>ExportOptions.plist</code> file. You can create new IPAs with the same options without launching Xcode by running <code>flutter build ipa --export-options-plist=path/to/ExportOptions.plist</code>. See <code>xcodebuild -h</code> for details about the keys in this property list.</p><p id="ff05d437-06e2-479b-82f8-e3ff5f6cd495" class="">You should receive an email within 30 minutes notifying you that your build has been validated and is available to release to testers on TestFlight. At this point you can choose whether to release on TestFlight, or go ahead and release your app to the App Store.</p><p id="fc9feb94-e1e6-4796-9e8d-2b535bd7a08f" class="">For more details, see <a href="https://help.apple.com/xcode/mac/current/#/dev442d7f2ca">Upload an app to App Store Connect</a>.</p><h1 id="3562ab87-ec74-4f73-9bda-34e2bc1ef908" class=""><strong>Create a build archive with Codemagic CLI tools</strong></h1><p id="daf6f7cd-7e45-4f1d-b6b3-97b07e68208c" class="">This step covers creating a build archive and uploading your build to App Store Connect using Flutter build commands and <a href="https://github.com/codemagic-ci-cd/cli-tools">Codemagic CLI Tools</a> executed in a terminal in the Flutter project directory. This allows you to create a build archive with full control of distribution certificates in a temporary keychain isolated from your login keychain.</p><p id="7970c6c5-aa47-4a13-b4ad-b965ea35150d" class="">1. 1.Install the Codemagic CLI tools:<em>content_copy</em>1pip3 install codemagic-cli-toolsCopied!
+2. 2.You’ll need to generate an <a href="https://appstoreconnect.apple.com/access/api">App Store Connect API Key</a> with App Manager access to automate operations with App Store Connect. To make subsequent commands more concise, set the following environment variables from the new key: issuer id, key id, and API key file.<em>content_copy</em>1export APP_STORE_CONNECT_ISSUER_ID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee2export APP_STORE_CONNECT_KEY_IDENTIFIER=ABC12345673export APP_STORE_CONNECT_PRIVATE_KEY=`cat /path/to/api/key/AuthKey_XXXYYYZZZ.p8`Copied!
+3. 3.You need to export or create an iOS Distribution certificate to code sign and package a build archive.If you have existing <a href="https://developer.apple.com/account/resources/certificates">certificates</a>, you can export the private keys by executing the following command for each certificate:<em>content_copy</em>1openssl pkcs12 -in &lt;certificate_name&gt;.p12 -nodes -nocerts | openssl rsa -out cert_keyCopied!Or you can create a new private key by executing the following command:<em>content_copy</em>1ssh-keygen -t rsa -b 2048 -m PEM -f cert_key -q -N &quot;&quot;Copied!Later, you can have CLI tools automatically create a new iOS Distribution from the private key.
+4. 4.Set up a new temporary keychain to be used for code signing:<em>content_copy</em>1keychain initializeCopied!<strong>Restore Login Keychain!</strong> After running <code>keychain initialize</code> you <strong>must</strong> run the following:
+
+<code>keychain use-login</code>This sets your login keychain as the default to avoid potential authentication issues with apps on your machine.
+5. 5.Fetch the code signing files from App Store Connect:<em>content_copy</em>1app-store-connect fetch-signing-files $(xcode-project detect-bundle-id) \2    --platform IOS \3    --type IOS_APP_STORE \4    --certificate-key=@file:/path/to/cert_key \5    --createCopied!Where <code>cert_key</code> is either your exported iOS Distribution certificate private key or a new private key which automatically generates a new certificate. The certificate will be created from the private key if it doesn’t exist in App Store Connect.
+6. 6.Now add the fetched certificates to your keychain:<em>content_copy</em>1keychain add-certificatesCopied!
+7. 7.Update the Xcode project settings to use fetched code signing profiles:<em>content_copy</em>1xcode-project use-profilesCopied!
+8. 8.Install Flutter dependencies:<em>content_copy</em>1flutter packages pub getCopied!
+9. 9.Install CocoaPods dependencies:<em>content_copy</em>1find . -name &quot;Podfile&quot; -execdir pod install \;Copied!
+10. 10.Build the Flutter the iOS project:<em>content_copy</em>1flutter build ipa --release \2    --export-options-plist=$HOME/export_options.plistCopied!Note that <code>export_options.plist</code> is the output of the <code>xcode-project use-profiles</code> command.
+11. 11.Publish the app to App Store Connect:<em>content_copy</em>1app-store-connect publish \2    --path $(find $(pwd) -name &quot;*.ipa&quot;)Copied!
+12. 12.As mentioned earlier, don’t forget to set your login keychain as the default to avoid authentication issues with apps on your machine:<em>content_copy</em>1keychain use-loginCopied!</p><p id="d9877990-5385-4bf7-87e6-85dc24d020c1" class="">You should receive an email within 30 minutes notifying you that your build has been validated and is available to release to testers on TestFlight. At this point you can choose whether to release on TestFlight, or go ahead and release your app to the App Store.</p><h1 id="b164de02-474b-4766-bf94-37873837cd79" class=""><strong>Release your app on TestFlight</strong></h1><p id="950c15a9-3bc2-473b-84d0-4a75401fea59" class=""><a href="https://developer.apple.com/testflight/">TestFlight</a> allows developers to push their apps to internal and external testers. This optional step covers releasing your build on TestFlight.</p><p id="22e0337c-34d0-4ed7-8954-47756d6968e9" class="">1. 1.Navigate to the TestFlight tab of your app’s application details page on <a href="https://appstoreconnect.apple.com/">App Store Connect</a>.
+2. 2.Select <strong>Internal Testing</strong> in the sidebar.
+3. 3.Select the build to publish to testers, then click <strong>Save</strong>.
+4. 4.Add the email addresses of any internal testers. You can add additional internal users in the <strong>Users and Roles</strong> page of App Store Connect, available from the dropdown menu at the top of the page.</p><p id="f3879764-8702-4885-9514-8784a82a0079" class="">For more details, see <a href="https://help.apple.com/xcode/mac/current/#/dev2539d985f">Distribute an app using TestFlight</a>.</p><h1 id="fe3ea8e0-ef81-4c76-a118-4d9c4fa09060" class=""><strong>Release your app to the App Store</strong></h1><p id="85c75680-367d-4d09-bdd6-35bf0c28135a" class="">When you’re ready to release your app to the world, follow these steps to submit your app for review and release to the App Store:</p><p id="97f6d6ad-4739-4b22-9000-49cda82a4c6d" class="">1. 1.Select <strong>Pricing and Availability</strong> from the sidebar of your app’s application details page on <a href="https://appstoreconnect.apple.com/">App Store Connect</a> and complete the required information.
+2. 2.Select the status from the sidebar. If this is the first release of this app, its status is <strong>1.0 Prepare for Submission</strong>. Complete all required fields.
+3. 3.Click <strong>Submit for Review</strong>.</p><p id="51a499f1-2c87-48cf-a357-d09eb2f59b0c" class="">Apple notifies you when their app review process is complete. Your app is released according to the instructions you specified in the <strong>Version Release</strong> section.</p><p id="6df48d63-ef39-41ae-9d70-cb9e789b03b2" class="">
+</p><p id="ca1e3a6b-fe3b-4ed4-83eb-85ceb6e0e36b" class=""><a href="https://console.cloud.google.com/flows/enableapi?apiid=pubsub">https://console.cloud.google.com/flows/enableapi?apiid=pubsub</a></p><h2 id="6c839c2d-6743-4518-941f-624a8af304d4" class="">Android (DEV KEY)</h2><hr id="67735f32-ec79-4ad4-985f-65d2b7fdf731"/><p id="5782a5f7-1d61-482f-9a80-51e4b01a068e" class="">
+</p><p id="a75a9d6e-d06d-4330-a85b-930f8b770c0d" class="">After adding firebase you need to add the android debugger key(finger print) to the google package on firebase</p><figure id="3ec04d97-001b-4c75-8354-30e56f640406" class="image"><a href="Notifications%20f37fb419a4784b37984189df2af9bf13/SCR-20221015-hu5.png"><img style="width:1848px" src="Notifications%20f37fb419a4784b37984189df2af9bf13/SCR-20221015-hu5.png"/></a></figure><p id="d6567a0a-feae-406d-8df4-632bd5932868" class="">
+</p><p id="13c254c0-15aa-48f3-bceb-ad80c6bb860e" class="">Generate the key using and redownload and override the current google-services.json file</p><p id="de34f78f-19eb-4b89-b9c8-d927c90bf480" class="">Ensure you replace codememory with you username</p><p id="528bdca6-9019-4dbc-804d-162de06d6b4e" class="">Wondows</p><pre id="da1c3170-3ae0-45c9-8341-2ef8e90c38ee" class="code"><code>
+keytool -list -v -keystore &quot;C:\Users\codememeory\.android\debug.keystore&quot; -alias androiddebugkey -storepass android -keypass android</code></pre><p id="06ceafdf-af25-4b49-bd64-e3bdcda8439f" class="">Mac/Linux</p><pre id="d17dfa9a-c0da-4d5b-a51d-10373cbaeb05" class="code"><code>
+keytool -list -v -keystore &quot;/Users/codememory/.android/debug.keystore&quot; -alias androiddebugkey -storepass android -keypass android</code></pre><p id="b60ffc54-2e97-4b73-8da7-a9de6dd6fd10" class="">
+</p><h2 id="8e741a99-8d57-4ef2-9183-543ff8fb03b2" class="">Android (LIVE KEY)</h2><hr id="04fda4ae-ac2b-46ad-ab45-186e7e947395"/><p id="f5dd675a-8dbf-43ad-a227-9af735710238" class="">
+</p><p id="abfb892e-d3dd-4126-991c-145e5a6d2190" class="">Go to google play console and selected your app and copy the SHA-1 certificate fingerprint and SHA-256 certificate fingerprint key and update in firebase like above</p><figure id="26624b4d-2709-4ebf-9799-542893c314c7" class="image"><a href="Notifications%20f37fb419a4784b37984189df2af9bf13/SCR-20221015-i24.png"><img style="width:2165px" src="Notifications%20f37fb419a4784b37984189df2af9bf13/SCR-20221015-i24.png"/></a></figure><p id="1d1873ba-7d98-47fb-9b7b-c31b4a916e78" class="">
+</p><h2 id="7e037ff7-ccb2-4eaa-bebf-6a6cef9690d3" class="">Firebase final </h2><hr id="49cd5c20-d4c8-4569-b487-e16a4fda079e"/><p id="d1786475-79af-41f1-88a7-a95c7943d699" class="">
+</p><figure id="29b58f08-bf1e-4e0f-96e0-59759e5cbbfb" class="image"><a href="Notifications%20f37fb419a4784b37984189df2af9bf13/SCR-20221015-i4w.png"><img style="width:1780px" src="Notifications%20f37fb419a4784b37984189df2af9bf13/SCR-20221015-i4w.png"/></a></figure><p id="8b316d8d-78d5-409d-8968-61739561fc41" class="">
+</p><p id="7e74313f-e48a-46a5-9b87-29014f79c72a" class="">
+</p><h2 id="74edff91-c53a-437e-a8d4-49b667606b68" class="">iOS</h2><hr id="915922db-099e-4ec0-be29-fa0bda5f0e82"/><p id="25268f1e-05e7-4af9-9522-708a5ed74bba" class="">
+</p><p id="54095758-bb2d-4d5d-bfbe-dcfb73eafc8d" class="">Generate a APNs Key In Apple console and upload to firebase messaging</p><p id="8d20c6ec-906a-4641-b65b-5a0264aeda54" class="">
+</p></div></article></body></html>
